@@ -1,3 +1,5 @@
+import { Post } from "@/types/post.type";
+
 export async function fetchPosts(page: number, perPage: number) {
    const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/?_start=${page}&_limit=${perPage}`

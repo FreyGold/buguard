@@ -1,3 +1,4 @@
+import { Post } from "@/types/post.type";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 

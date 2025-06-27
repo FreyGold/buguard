@@ -9,6 +9,7 @@ import {
    PaginationNext,
    PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Post } from "@/types/post.type";
 async function Page({
    searchParams,
 }: {

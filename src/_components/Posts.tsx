@@ -24,7 +24,7 @@ function getRandomColor(): string {
       "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200",
       "bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200",
       "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200",
-      "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-900",
+      "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-100",
       "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200",
       "bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200",
    ];

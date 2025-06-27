@@ -45,21 +45,21 @@
 
 @media (prefers-color-scheme: dark) {
    :root {
-      --background: #0a0a0a;
+      --background: #090d1f;
       --foreground: #ededed;
    }
 }
 @media (prefers-color-scheme: light) {
    :root {
-      --foreground: #0a0a0a;
+      --foreground: #090d1f;
       --background: #ededed;
    }
 }
 
 :root {
    --radius: 0.625rem;
-   --background: oklch(1 0 0);
-   --foreground: oklch(0.145 0 0);
+   --foreground: #090d1f;
+   --background: #ededed;
    --card: oklch(1 0 0);
    --card-foreground: oklch(0.145 0 0);
    --popover: oklch(1 0 0);
@@ -92,8 +92,8 @@
 }
 
 .dark {
-   --background: oklch(0.145 0 0);
-   --foreground: oklch(0.985 0 0);
+   --background: #090d1f;
+   --foreground: #ededed;
    --card: oklch(0.205 0 0);
    --card-foreground: oklch(0.985 0 0);
    --popover: oklch(0.205 0 0);

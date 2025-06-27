@@ -29,7 +29,7 @@ async function Page({
          </Reveal>
          <div className="grid grid-cols-1 gap-8">
             {posts.map((post: Post) => (
-               <Reveal direction="right">
+               <Reveal direction="right" key={post.id}>
                   <Posts post={post} key={post.id} />
                </Reveal>
             ))}

@@ -1,3 +1,4 @@
+import { ThemeSwitch } from "@/components/ui/theme-switch";
 import { FaBars } from "react-icons/fa";
 
 function Navigation() {
@@ -5,6 +6,7 @@ function Navigation() {
       <div>
          <div className="flex justify-between h-20 items-center text-xl font-semibold px-5">
             <p>Your Name</p>
+            <ThemeSwitch />
             <FaBars />
          </div>
          <div className="flex mt-4 flex-col items-center gap-3 text-center">

@@ -20,13 +20,13 @@ function getRandomTags() {
 
 function getRandomColor(): string {
    const colors = [
-      "bg-purple-100 text-purple-700",
-      "bg-blue-100 text-blue-700",
-      "bg-pink-100 text-pink-700",
-      "bg-green-100 text-green-700",
-      "bg-yellow-100 text-yellow-700",
-      "bg-red-100 text-red-700",
-      "bg-gray-100 text-gray-700",
+      "bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200",
+      "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200",
+      "bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200",
+      "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200",
+      "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-900",
+      "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200",
+      "bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200",
    ];
    return colors[Math.floor(Math.random() * colors.length)];
 }
@@ -56,7 +56,7 @@ function Posts({ post }: { post: Post }) {
                {randomTags.map((tag) => (
                   <span
                      key={tag}
-                     className={` h-[24px] flex items-center justify-center rounded-3xl px-3 py-1 mix-blend-multiply ${getRandomColor()}`}>
+                     className={` h-[24px] flex items-center justify-center rounded-3xl px-3 py-1 ${getRandomColor()}`}>
                      {tag}
                   </span>
                ))}

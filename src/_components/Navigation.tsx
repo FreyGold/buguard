@@ -1,6 +1,5 @@
 "use client";
 import Sidebar from "@/components/ui/sidebar";
-import { ThemeSwitch } from "@/components/ui/theme-switch";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Slide } from "./Slide";

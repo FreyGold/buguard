@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView, useAnimation, useIsPresent } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { JSX, useRef, useEffect } from "react";
 
 type Props = {

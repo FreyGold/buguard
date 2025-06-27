@@ -10,6 +10,7 @@ import {
    PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Post } from "@/types/post.type";
+import { Reveal } from "@/_components/Reveal";
 async function Page({
    searchParams,
 }: {
@@ -23,10 +24,14 @@ async function Page({
    const totalPages = Math.ceil(total / limit);
    return (
       <div className="flex gap-9 mt-4 p-8 flex-col font-semibold">
-         <h3 className="text-2xl">Recent Blog Posts</h3>
+         <Reveal>
+            <h3 className="text-2xl">Recent Blog Posts</h3>
+         </Reveal>
          <div className="grid grid-cols-1 gap-8">
             {posts.map((post: Post) => (
-               <Posts post={post} key={post.id} />
+               <Reveal direction="right">
+                  <Posts post={post} key={post.id} />
+               </Reveal>
             ))}
          </div>
          <Pagination>

@@ -1,25 +1,100 @@
-import { Pagination } from "@/components/ui/pagination";
-import Posts from "../_components/Posts";
-import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
-
-function Page() {
+import { fetchPosts } from "@/lib/api";
+import Posts from "../../_components/Posts";
+import {
+   Pagination,
+   PaginationContent,
+   PaginationEllipsis,
+   PaginationItem,
+   PaginationLink,
+   PaginationNext,
+   PaginationPrevious,
+} from "@/components/ui/pagination";
+async function Page({
+   searchParams,
+}: {
+   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+   const params = await searchParams;
+   const page = Number(params["page"] ?? 1);
+   const limit = Number(params["per_page"] ?? 5);
+   const start = (page - 1) * limit;
+   const { posts, total } = await fetchPosts(start, limit);
+   const totalPages = Math.ceil(total / limit);
    return (
       <div className="flex gap-9 mt-4 p-8 flex-col font-semibold">
          <h3 className="text-2xl">Recent Blog Posts</h3>
-         <Posts />
-         <h5 className=" text-lg text-[#6941C6]">Sunday , 1 Jan 2023</h5>
-         <div className="flex justify-between items-center">
-            <h2 className="text-2xl">UX review presentations</h2>
-            <FiArrowUpRight />
+         <div className="grid grid-cols-1 gap-8">
+            {posts.map((post: Post) => (
+               <Posts post={post} key={post.id} />
+            ))}
          </div>
-         <h6 className="font-normal text-[#667085] text-base leading-6 tracking-wide">
-            How do you create compelling presentations that wow your colleagues
-            and impress your managers?
-         </h6>
-         <div className="flex gap-2 text-sm leading-6 tracking-wide font-medium">
-            <div className="bg-amber-500 rounded-3xl p-2">Helllo</div>
-            <div className="bg-amber-700 rounded-3xl p-2">Again</div>
-         </div>
+         <Pagination>
+            <PaginationContent>
+               <PaginationItem>
+                  <PaginationPrevious
+                     href={`?page=${page > 1 ? page - 1 : 1}`}
+                     aria-disabled={page === 1}
+                  />
+               </PaginationItem>
+
+               {/* Always show first page */}
+               <PaginationItem>
+                  <PaginationLink href="?page=1" isActive={page === 1}>
+                     1
+                  </PaginationLink>
+               </PaginationItem>
+
+               {/* Show ellipsis if current page is far from start */}
+               {page > 3 && totalPages > 4 && (
+                  <PaginationItem>
+                     <PaginationEllipsis />
+                  </PaginationItem>
+               )}
+
+               {/* Show previous, current, next page numbers if not at the edges */}
+               {Array.from({ length: totalPages }, (_, i) => i + 1)
+                  .filter(
+                     (p) =>
+                        (p === page - 1 && p !== 1 && p !== totalPages) ||
+                        (p === page && p !== 1 && p !== totalPages) ||
+                        (p === page + 1 && p !== 1 && p !== totalPages)
+                  )
+                  .map((p) => (
+                     <PaginationItem key={p}>
+                        <PaginationLink
+                           href={`?page=${p}`}
+                           isActive={page === p}>
+                           {p}
+                        </PaginationLink>
+                     </PaginationItem>
+                  ))}
+
+               {/* Show ellipsis if current page is far from end */}
+               {page < totalPages - 2 && totalPages > 4 && (
+                  <PaginationItem>
+                     <PaginationEllipsis />
+                  </PaginationItem>
+               )}
+
+               {/* Always show last page if more than one */}
+               {totalPages > 1 && (
+                  <PaginationItem>
+                     <PaginationLink
+                        href={`?page=${totalPages}`}
+                        isActive={page === totalPages}>
+                        {totalPages}
+                     </PaginationLink>
+                  </PaginationItem>
+               )}
+
+               <PaginationItem>
+                  <PaginationNext
+                     href={`?page=${page < totalPages ? page + 1 : totalPages}`}
+                     aria-disabled={page === totalPages}
+                  />
+               </PaginationItem>
+            </PaginationContent>
+         </Pagination>
       </div>
    );
 }

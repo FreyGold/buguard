@@ -8,3 +8,11 @@ export async function fetchPosts(page: number, perPage: number) {
    const total = Number(response.headers.get("X-Total-Count") || 0);
    return { posts, total };
 }
+
+export async function fetchPost(id: string): Promise<Post> {
+   const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+   );
+   const post: Post = await response.json(); // Parse the JSON body
+   return post;
+}

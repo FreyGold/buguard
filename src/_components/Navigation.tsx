@@ -3,6 +3,8 @@ import Sidebar from "@/components/ui/sidebar";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Slide } from "./Slide";
+import Link from "next/link";
+import { ThemeSwitch } from "@/components/ui/theme-switch";
 
 function Navigation() {
    const [open, setOpen] = useState(false);
@@ -12,16 +14,15 @@ function Navigation() {
    return (
       <div>
          <div className="flex justify-between h-20 items-center text-xl font-semibold px-5">
-            <p>Ahmed Tawfik</p>
-            <div onClick={toggle}>
+            <Link href={"/posts"}>Ahmed Tawfik</Link>
+            <div onClick={toggle} className="md:hidden">
                <FaBars />
             </div>
+            <div className="hidden md:block">
+               <ThemeSwitch />
+            </div>
          </div>
-         <div className="flex mt-4 flex-col items-center gap-3 text-center">
-            <div className="h-[1px] bg-[#00000057] dark:bg-white dark:opacity-30  w-[100vw]"></div>
-            <h3 className="text-7xl font-[700]">THE BLOG</h3>
-            <div className="h-[1px] bg-[#00000057] dark:bg-white dark:opacity-30 w-[100vw]"></div>
-         </div>
+
          <Slide open={open}>
             <Sidebar toggle={toggle} />
          </Slide>

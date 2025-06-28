@@ -1,5 +1,6 @@
 import { Post } from "@/types/post.type";
 import Image from "next/image";
+import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
 function getRandomTags() {
@@ -31,33 +32,59 @@ function getRandomColor(): string {
    return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function Posts({ post }: { post: Post }) {
-   const { title, body } = post;
+function Posts({
+   post,
+   direction = "vertical",
+}: {
+   post: Post;
+   direction: "horizontal" | "vertical";
+}) {
+   const { title, id, body } = post;
    const randomTags = getRandomTags();
    const randomImage = Math.ceil(Math.random() * 10);
-   console.log(randomTags);
+   const sizes = {
+      vertical: "relative w-full h-48 sm:h-64 md:h-80 lg:h-96",
+      horizontal:
+         "relative w-1/2 h-48 sm:w-1/2 sm:h-56 md:w-1/2 md:h-64 lg:w-1/2 lg:h-72",
+   };
+   const style = sizes[direction];
    return (
-      <div className="flex gap-9 flex-col font-semibold">
-         <Image
-            src={`/${randomImage}.jpg`}
-            alt="placeholder"
-            width={400}
-            height={400}
-         />
-         <h5 className=" text-lg text-[#6941C6]">Sunday , 1 Jan 2023</h5>
-         <div className="flex justify-between items-center">
-            <h2 className="text-2xl">{title}</h2>
-            <FiArrowUpRight size={"40px"} />
+      <div
+         className={`flex gap-9 font-semibold ${
+            direction === "horizontal" ? "flex-col md:flex-row" : "flex-col"
+         }`}>
+         <div
+            className={
+               direction === "horizontal"
+                  ? "relative flex-1 aspect-[4/3] min-w-[180px] max-w-[350px] md:max-w-[350px]"
+                  : "relative w-full h-48 sm:h-64 md:h-80 lg:h-96"
+            }>
+            <Image
+               src={`/${randomImage}.jpg`}
+               alt="placeholder"
+               fill
+               className="object-cover"
+               sizes="(max-width: 768px) 100vw, 50vw"
+            />
          </div>
-         <h6 className="font-normal text-[#667085] text-base leading-6 tracking-wide">
-            {body}
-         </h6>
-         <div className="flex gap-2 text-sm leading-6 tracking-wide font-medium">
+         <div className="flex flex-col gap-4 flex-1 font-semibold justify-center">
+            <h5 className="text-lg text-[#6941C6]">Sunday , 1 Jan 2023</h5>
+            <Link
+               href={`/posts/${id}`}
+               className="flex justify-between items-center">
+               <h2 className="text-2xl">{title.toUpperCase()}</h2>
+               <div className="size-10 flex items-center justify-center">
+                  <FiArrowUpRight size={30} />
+               </div>
+            </Link>
+            <h6 className="font-normal text-[#667085] text-base leading-6 tracking-wide">
+               {body}
+            </h6>
             <div className="flex gap-2 text-sm leading-6 tracking-wide font-medium">
                {randomTags.map((tag) => (
                   <span
                      key={tag}
-                     className={` h-[24px] flex items-center justify-center rounded-3xl px-3 py-1 ${getRandomColor()}`}>
+                     className={`h-[24px] flex items-center justify-center rounded-3xl px-3 py-1 ${getRandomColor()}`}>
                      {tag}
                   </span>
                ))}

@@ -1,3 +1,13 @@
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
-   return <div className="px-4">Aloha</div>;
+   const router = useRouter();
+
+   useEffect(() => {
+      router.replace("/posts/");
+   }, [router]);
+
+   return null;
 }

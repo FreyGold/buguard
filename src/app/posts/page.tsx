@@ -28,7 +28,9 @@ async function Page({
          <Reveal>
             <div className="flex mt-4 flex-col items-center gap-3 text-center">
                <div className="h-[1px] bg-[#00000057] dark:bg-white dark:opacity-30 w-[100vw]"></div>
-               <h3 className="text-7xl font-bold md:text-[160px]">THE BLOG</h3>
+               <h3 className="text-7xl font-bold md:text-[160px] lg:text-[240px]">
+                  THE BLOG
+               </h3>
                <div className="h-[1px] bg-[#00000057] dark:bg-white dark:opacity-30 w-[100vw]"></div>
             </div>
          </Reveal>
@@ -37,14 +39,16 @@ async function Page({
                <h3 className="text-2xl">Recent Blog Posts</h3>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div className="md:col-span-2">
+               <div className="md:col-span-2 lg:col-span-1">
                   <Posts post={posts[0]} direction="vertical" />
                </div>
-               <div className="flex flex-col gap-8 md:col-span-2 md:mb-8">
+
+               <div className="flex flex-col gap-8 md:col-span-2 lg:col-span-1  mb-6">
                   <Posts post={posts[1]} direction="horizontal" />
                   <Posts post={posts[2]} direction="horizontal" />
                </div>
-               <div className="md:col-span-2">
+
+               <div className="md:col-span-2 lg:col-span-3">
                   <Posts post={posts[3]} direction="vertical" />
                </div>
             </div>

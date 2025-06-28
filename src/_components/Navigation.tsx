@@ -15,7 +15,7 @@ function Navigation() {
       <div>
          <div className="flex justify-between h-20 items-center text-xl font-semibold px-5">
             <Link href={"/posts"}>Ahmed Tawfik</Link>
-            <div onClick={toggle} className="md:hidden">
+            <div onClick={toggle} className="md:hidden cursor-pointer">
                <FaBars />
             </div>
             <div className="hidden md:block">

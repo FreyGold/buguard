@@ -18,7 +18,7 @@ function Sidebar({ toggle }: SidebarProps) {
             <h4>Newsletter</h4>
             <ThemeSwitch />
          </div>
-         <div className="justify-self-end-safe">
+         <div className="cursor-pointer">
             <X onClick={toggle} />
          </div>
       </div>

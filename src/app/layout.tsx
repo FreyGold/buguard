@@ -12,7 +12,9 @@ export default function RootLayout({
 }) {
    return (
       <html lang="en">
-         <body className={`${InterFont.className}`} suppressHydrationWarning>
+         <body
+            className={`${InterFont.className} lg:px-24`}
+            suppressHydrationWarning>
             <Providers>
                <Navigation />
                {children}

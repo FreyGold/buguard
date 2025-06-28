@@ -9,7 +9,7 @@ type Props = {
 const Slide = ({ children, open }: Props) => {
    return (
       <motion.div
-         className="fixed inset-0 z-50 will-change-transform pointer-events-auto"
+         className="fixed inset-0 z-50"
          variants={{
             hidden: {
                y: "-100%",

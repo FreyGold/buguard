@@ -7,7 +7,7 @@ type SidebarProps = {
 function Sidebar({ toggle }: SidebarProps) {
    return (
       <div className="flex flex-col w-screen h-screen gap-8 font-semibold text-lg items-center justify-center dark:bg-black bg-white">
-         <h3>Your Name</h3>
+         <h3>Ahmed Tawfik</h3>
          <div className="flex flex-col font-normal gap-4 text-lg items-center">
             <h4>Blog</h4>
             <h4>Projects</h4>

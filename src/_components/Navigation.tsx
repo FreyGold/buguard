@@ -12,7 +12,7 @@ function Navigation() {
    return (
       <div>
          <div className="flex justify-between h-20 items-center text-xl font-semibold px-5">
-            <p>Your Name</p>
+            <p>Ahmed Tawfik</p>
             <FaBars onClick={toggle} />
          </div>
          <div className="flex mt-4 flex-col items-center gap-3 text-center">

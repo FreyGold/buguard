@@ -25,7 +25,7 @@ function Paginate({
                <PaginationPrevious
                   href={`?page=${page > 1 ? page - 1 : 1}`}
                   onClick={() => {
-                     page > 1 ? setPage((page) => page - 1) : 1;
+                     if (page > 1) setPage((page) => page - 1);
                   }}
                   aria-disabled={page === 1}
                />
@@ -97,9 +97,7 @@ function Paginate({
                   href={`?page=${page < totalPages ? page + 1 : totalPages}`}
                   aria-disabled={page === totalPages}
                   onClick={() => {
-                     page < totalPages
-                        ? setPage((page) => page + 1)
-                        : totalPages;
+                     if (page < totalPages) setPage((page) => page + 1);
                   }}
                />
             </PaginationItem>

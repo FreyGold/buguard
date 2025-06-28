@@ -13,7 +13,9 @@ function Navigation() {
       <div>
          <div className="flex justify-between h-20 items-center text-xl font-semibold px-5">
             <p>Ahmed Tawfik</p>
-            <FaBars onClick={toggle} />
+            <div onClick={toggle}>
+               <FaBars />
+            </div>
          </div>
          <div className="flex mt-4 flex-col items-center gap-3 text-center">
             <div className="h-[1px] bg-[#00000057] dark:bg-white dark:opacity-30  w-[100vw]"></div>

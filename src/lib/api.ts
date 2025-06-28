@@ -1,12 +1,11 @@
 import { Post } from "@/types/post.type";
 
-export async function fetchPosts(page: number, perPage: number) {
+export async function fetchPosts(page: number) {
    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/?_start=${page}&_limit=${perPage}`
+      `https://jsonplaceholder.typicode.com/posts/?_start=${page}&_limit=10`
    );
    const posts: Post[] = await response.json(); // Parse the JSON body
-   const total = Number(response.headers.get("X-Total-Count") || 0);
-   return { posts, total };
+   return posts;
 }
 
 export async function fetchPost(id: string): Promise<Post> {

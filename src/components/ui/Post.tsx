@@ -1,4 +1,4 @@
-import { Post } from "@/types/post.type";
+import { Post as PostType } from "@/types/post.type";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -32,11 +32,11 @@ function getRandomColor(): string {
    return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function Posts({
+function Post({
    post,
    direction = "vertical",
 }: {
-   post: Post;
+   post: PostType;
    direction: "horizontal" | "vertical";
 }) {
    const { title, id, body } = post;
@@ -89,4 +89,4 @@ function Posts({
    );
 }
 
-export default Posts;
+export default Post;

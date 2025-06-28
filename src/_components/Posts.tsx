@@ -34,11 +34,12 @@ function getRandomColor(): string {
 function Posts({ post }: { post: Post }) {
    const { title, body } = post;
    const randomTags = getRandomTags();
+   const randomImage = Math.ceil(Math.random() * 10);
    console.log(randomTags);
    return (
       <div className="flex gap-9 flex-col font-semibold">
          <Image
-            src={"https://placehold.co/600x400/png"}
+            src={`/${randomImage}.jpg`}
             alt="placeholder"
             width={400}
             height={400}

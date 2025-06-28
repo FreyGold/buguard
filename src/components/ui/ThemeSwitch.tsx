@@ -14,7 +14,7 @@ export function ThemeSwitch() {
          <span
             className={`
             absolute top-1/2 -translate-y-1/2 right-1
-            h-6 w-6 rounded-full  shadow-md transition-all duration-300
+            h-6 w-6 rounded-full  shadow-md transition-all duration-400
             ${
                resolvedTheme === "dark"
                   ? "-translate-x-8 bg-black"

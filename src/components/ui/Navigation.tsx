@@ -1,10 +1,10 @@
 "use client";
-import Sidebar from "@/components/ui/sidebar";
+import Sidebar from "@/components/ui/Sidebar";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Slide } from "./Slide";
 import Link from "next/link";
-import { ThemeSwitch } from "@/components/ui/theme-switch";
+import { ThemeSwitch } from "@/components/ui/ThemeSwitch";
 
 function Navigation() {
    const [open, setOpen] = useState(false);

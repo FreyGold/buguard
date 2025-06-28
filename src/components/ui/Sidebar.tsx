@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { ThemeSwitch } from "./theme-switch";
+import { ThemeSwitch } from "./ThemeSwitch";
 import Link from "next/link";
 type SidebarProps = {
    toggle: () => void;

@@ -1,5 +1,5 @@
 import { fetchPosts } from "@/lib/api";
-import Posts from "../../_components/Posts";
+import Posts from "../../components/ui/Posts";
 import {
    Pagination,
    PaginationContent,
@@ -8,9 +8,9 @@ import {
    PaginationLink,
    PaginationNext,
    PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/ui/Pagination";
 import { Post } from "@/types/post.type";
-import { Reveal } from "@/_components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 async function Page({
    searchParams,
 }: {

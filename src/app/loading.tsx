@@ -10,7 +10,6 @@ export default function Loading() {
          <p className="text-gray-600 mb-6">
             Please wait while we fetch your data.
          </p>
-         {/* Tailwind's built-in spinner-like animation can be created with custom classes or keyframes */}
          <div className="w-10 h-10 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
       </div>
    );

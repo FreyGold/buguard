@@ -1,5 +1,4 @@
-// src/app/products/[id]/error.tsx
-"use client"; // Error boundaries must be Client Components
+"use client";
 
 import React, { useEffect } from "react";
 
@@ -11,7 +10,6 @@ export default function Error({
    reset: () => void;
 }) {
    useEffect(() => {
-      // Log the error to an error reporting service
       console.error(error);
    }, [error]);
 
@@ -24,10 +22,7 @@ export default function Error({
             {error.message || "An unexpected error occurred."}
          </p>
          <button
-            onClick={
-               // Attempt to recover by trying to re-render the segment
-               () => reset()
-            }
+            onClick={() => reset()}
             className="px-6 py-3 bg-red-600 text-white font-medium rounded-md shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-300">
             Try again
          </button>

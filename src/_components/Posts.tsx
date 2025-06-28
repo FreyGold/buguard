@@ -42,12 +42,7 @@ function Posts({
    const { title, id, body } = post;
    const randomTags = getRandomTags();
    const randomImage = Math.ceil(Math.random() * 10);
-   const sizes = {
-      vertical: "relative w-full h-48 sm:h-64 md:h-80 lg:h-96",
-      horizontal:
-         "relative w-1/2 h-48 sm:w-1/2 sm:h-56 md:w-1/2 md:h-64 lg:w-1/2 lg:h-72",
-   };
-   const style = sizes[direction];
+
    return (
       <div
          className={`flex gap-9 font-semibold ${

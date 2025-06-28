@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/pagination";
 import { Post } from "@/types/post.type";
 import { Reveal } from "@/_components/Reveal";
-import { div } from "framer-motion/client";
 async function Page({
    searchParams,
 }: {

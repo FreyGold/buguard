@@ -1,8 +1,13 @@
 import { fetchPost } from "@/lib/api";
 import Image from "next/image";
 
-async function Page({ params }: { params: { postId: string } }) {
-   const { postId } = params;
+async function Page({
+   params,
+}: {
+   params: Promise<{ [key: string]: string }>;
+}) {
+   const resolvedParams = await params;
+   const { postId } = resolvedParams;
    const { title, body } = await fetchPost(postId);
    const randomImage = Math.ceil(Math.random() * 10);
    return (

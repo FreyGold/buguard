@@ -9,7 +9,7 @@ type Props = {
 const Slide = ({ children, open }: Props) => {
    return (
       <motion.div
-         className="fixed inset-0 z-50"
+         className="fixed top-0 left-0 right-0 bottom-0 h-screen w-screen z-50 bg-white dark:bg-black will-change-transform touch-none"
          variants={{
             hidden: {
                y: "-100%",

@@ -1,7 +1,7 @@
 "use client";
 import useGetPost from "@/hooks/useGetPost";
 import Image from "next/image";
-import { PostDetailsSkeleton } from "../skeleton/PostDetailsSkeleton";
+import { PostDetailsSkeleton } from "../skeletons/PostDetailsSkeleton";
 
 function PostDetails({ postId }: { postId: string }) {
    const {

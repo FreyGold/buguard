@@ -8,15 +8,15 @@ import Recent from "../posts/Recent";
 import AllPosts from "../posts/AllPosts";
 import Paginate from "../posts/Paginate";
 import { useState } from "react";
-import RecentSkeleton from "../skeleton/RecentSkeleton";
-import AllSkeleton from "../skeleton/AllSkeleton";
+import RecentSkeleton from "../skeletons/RecentSkeleton";
+import AllSkeleton from "../skeletons/AllSkeleton";
 
 function PostsPage() {
    const searchParams = useSearchParams();
    const [page, setPage] = useState(Number(searchParams.get("page") ?? 1));
 
    const {
-      data: firstPagePosts = [],
+      data: recentPosts = [],
       isLoading: isLoadingFirst,
       isError: isErrorFirst,
    } = useGetPosts(1);
@@ -48,7 +48,7 @@ function PostsPage() {
             <Header />
          </Reveal>
          <div className="flex gap-9 mt-4 p-8 flex-col font-semibold">
-            <Recent firstPagePosts={firstPagePosts} />
+            <Recent recentPosts={recentPosts} />
             {isLoading && <AllSkeleton />}
             <AllPosts paginatedPosts={paginatedPosts} />
             <Paginate page={page} totalPages={totalPages} setPage={setPage} />

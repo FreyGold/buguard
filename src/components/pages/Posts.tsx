@@ -3,13 +3,13 @@
 import { Reveal } from "@/components/ui/Reveal";
 import useGetPosts from "@/hooks/useGetPosts";
 import { useSearchParams } from "next/navigation";
-import { MoonLoader } from "react-spinners";
 import Header from "../posts/Header";
 import Recent from "../posts/Recent";
 import AllPosts from "../posts/AllPosts";
-import AllPostsSkeleton from "../ui/AllPostsSkeleton";
 import Paginate from "../posts/Paginate";
 import { useState } from "react";
+import RecentSkeleton from "../skeleton/RecentSkeleton";
+import AllSkeleton from "../skeleton/AllSkeleton";
 
 function PostsPage() {
    const searchParams = useSearchParams();
@@ -31,12 +31,14 @@ function PostsPage() {
 
    const totalPages = Math.ceil(100 / 10);
 
-   if (isLoadingFirst)
+   if (isLoadingFirst) {
       return (
-         <div className="flex justify-center items-center min-h-screen">
-            <MoonLoader />
+         <div className="flex gap-9 mt-4 p-8 flex-col font-semibold">
+            <Header />
+            <RecentSkeleton />
          </div>
       );
+   }
    if (isError || isErrorFirst) {
       throw new Error("Error");
    }
@@ -47,7 +49,7 @@ function PostsPage() {
          </Reveal>
          <div className="flex gap-9 mt-4 p-8 flex-col font-semibold">
             <Recent firstPagePosts={firstPagePosts} />
-            {isLoading && <AllPostsSkeleton />}
+            {isLoading && <AllSkeleton />}
             <AllPosts paginatedPosts={paginatedPosts} />
             <Paginate page={page} totalPages={totalPages} setPage={setPage} />
          </div>

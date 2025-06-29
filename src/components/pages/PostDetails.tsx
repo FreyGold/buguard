@@ -1,7 +1,7 @@
 "use client";
 import useGetPost from "@/hooks/useGetPost";
 import Image from "next/image";
-import { MoonLoader } from "react-spinners";
+import { PostDetailsSkeleton } from "../skeleton/PostDetailsSkeleton";
 
 function PostDetails({ postId }: { postId: string }) {
    const {
@@ -10,14 +10,8 @@ function PostDetails({ postId }: { postId: string }) {
       isError: isError,
    } = useGetPost(postId);
 
-   if (isLoading)
-      return (
-         <div className="flex justify-center items-center min-h-screen">
-            <MoonLoader />
-         </div>
-      );
+   if (isLoading) return <PostDetailsSkeleton />;
 
-   // Check for missing properties in data
    if (
       isError ||
       !data ||

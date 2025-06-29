@@ -1,5 +1,4 @@
 import PostSkeleton from "./PostSkeleton";
-import { Reveal } from "../ui/Reveal";
 
 function RecentSkeleton() {
    return (

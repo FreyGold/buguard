@@ -1,6 +1,7 @@
 import PostsPage from "@/components/pages/Posts";
 import { Metadata } from "next";
-
+import { Suspense } from "react";
+import { FadeLoader } from "react-spinners";
 export const metadata: Metadata = {
    title: "All Blog Posts",
    description:
@@ -20,7 +21,11 @@ export const metadata: Metadata = {
 };
 
 function Page() {
-   return <PostsPage />;
+   return (
+      <Suspense fallback={<FadeLoader />}>
+         <PostsPage />
+      </Suspense>
+   );
 }
 
 export default Page;

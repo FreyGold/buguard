@@ -1,4 +1,3 @@
-import { Reveal } from "../ui/Reveal";
 import PostSkeleton from "./PostSkeleton";
 
 function AllSkeleton() {

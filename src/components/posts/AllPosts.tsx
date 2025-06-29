@@ -6,7 +6,7 @@ function AllPosts({ paginatedPosts }: { paginatedPosts: PostType[] }) {
    return (
       <div>
          <Reveal>
-            <h3 className="text-2xl">All Blog Posts</h3>
+            <h3 className="text-2xl mb-4">All Blog Posts</h3>
          </Reveal>
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {paginatedPosts.slice(4).map((post: PostType) => (

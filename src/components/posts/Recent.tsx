@@ -6,7 +6,7 @@ function Recent({ firstPagePosts }: { firstPagePosts: PostType[] }) {
    return (
       <div>
          <Reveal>
-            <h3 className="text-2xl">Recent Blog Posts</h3>
+            <h3 className="text-2xl mb-4">Recent Blog Posts</h3>
          </Reveal>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="md:col-span-2 lg:col-span-1">
